@@ -42,7 +42,9 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Bump version and create changelog
-        uses: mikeal/semantic-release@v1
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Add Play Store deploy step here if needed
