@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Kotlin MVVM Clean Hilt Jetpack Compose</string>
+    <string name="welcome">Welcome</string>
+    <string name="item_count">You have %1$d items</string>
+
+    <!-- Navigation Screen Titles -->
+    <string name="screen_home">Home</string>
+    <string name="screen_favorites">Favorites</string>
+    <string name="screen_profile">Profile</string>
+    <string name="screen_settings">Settings</string>
+
+    <!-- Showcase Screen Titles -->
+    <string name="showcase_title">Component Showcase</string>
+    <string name="loading_indicator_title">Loading Indicator</string>
+    <string name="error_handling_title">Error Handling</string>
+    <string name="dialog_manager_title">Dialog Manager</string>
+    <string name="permission_manager_title">Permission Manager</string>
+    <string name="generic_list_view_title">Generic List View</string>
+    <string name="buttons_and_text_fields_title">Buttons and Text Fields</string>
+    <string name="secure_storage_title">Secure Storage</string>
+    <string name="analytics_example_title">Analytics Example</string>
+    <string name="config_feature_flag_title">Config/Feature Flag</string>
+    <string name="accessibility_example_title">Accessibility Example</string>
+
+    <!-- Button Labels -->
+    <string name="show_loading_button">Show Loading</string>
+    <string name="hide_loading_button">Hide Loading</string>
+    <string name="show_error_button">Show Error</string>
+    <string name="show_dialog_button">Show Dialog</string>
+    <string name="request_permissions_button">Request Permissions</string>
+    <string name="submit_button">Submit</string>
+    <string name="save_secret_button">Save Secret</string>
+    <string name="read_secret_button">Read Secret</string>
+    <string name="log_analytics_event_button">Log Analytics Event</string>
+    <string name="check_new_ui_flag_button">Check \"new_ui\" Flag</string>
+    <string name="accessible_button">Accessible Button</string>
+
+    <!-- Text Field Labels -->
+    <string name="enter_text_label">Enter Text</string>
+
+    <!-- Permission Status -->
+    <string name="camera_permission_status">Camera Permission: %1$s</string>
+    <string name="location_permission_status">Location Permission: %1$s</string>
+
+    <!-- Dialog Content -->
+    <string name="info_dialog_title">Custom Dialog</string>
+    <string name="info_dialog_message">This is a fully customizable dialog component.</string>
+    <string name="dialog_button_positive">OK</string>
+    <string name="dialog_button_negative">Cancel</string>
+    <string name="dialog_button_neutral">Learn More</string>
+
+    <!-- Other UI Text -->
+    <string name="sample_error_message">This is a sample error.</string>
+    <string name="secret_prefix">Secret: %1$s</string>
+    <string name="analytics_event_fired_message">Analytics event fired!</string>
+    <string name="new_ui_flag_status">\"new_ui\" flag is: %1$b</string>
+    <string name="button_clicked_message">Button clicked!</string>
+    <string name="permission_required_title">Permission Required</string>
+    <string name="permission_required_message">This feature requires permissions to function. Please grant them in settings.</string>
+    <string name="accessible_button_content_description">This is an example of an accessible button with a content description.</string>
+
+</resources>

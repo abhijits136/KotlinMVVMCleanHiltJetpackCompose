@@ -1,0 +1,1 @@
+// This file is intentionally left blank. The interface has been moved to the domain.repository package.
