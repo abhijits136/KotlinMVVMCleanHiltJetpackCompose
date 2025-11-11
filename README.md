@@ -53,6 +53,15 @@ app/src/main/java/com/example/kotlinmvvmcleanhiltjetpackcompose
         └── theme       # Theming and Design Tokens
 ```
 
+## Code Shrinking and Obfuscation
+
+This project is configured to use [R8](https://developer.android.com/studio/build/shrink-code) (with ProGuard rules) to shrink and obfuscate the code for release builds. This helps to reduce the app's size and protect the source code from reverse engineering.
+
+-   **Enabled in:** `release` build type (`isMinifyEnabled = true`).
+-   **Configuration File:** Custom rules are located in `app/proguard-rules.pro`.
+
+When adding new dependencies or classes that rely on reflection (e.g., for serialization), please remember to add the necessary `-keep` rules to this file to prevent them from being removed or obfuscated.
+
 ## How to Use
 
 1.  Clone the repository.
