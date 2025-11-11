@@ -9,6 +9,8 @@ android {
     namespace = "com.example.kotlinmvvmcleanhiltjetpackcompose"
     compileSdk = 36
 
+    flavorDimensions += "environment"
+
     defaultConfig {
         applicationId = "com.example.kotlinmvvmcleanhiltjetpackcompose"
         minSdk = 24
@@ -22,26 +24,19 @@ android {
         }
     }
 
+    productFlavors {
+        create("dev") {
+            dimension = "environment"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+        }
+        create("prod") {
+            dimension = "environment"
+        }
+    }
+
     buildTypes {
         release {
-            // Enables code shrinking, obfuscation, and optimization for release builds.
-            isMinifyEnabled = true
-
-            // Enables resource shrinking, which removes unused resources.
-            // This runs after the code shrinker, so it knows which resources are still used.
-            isShrinkResources = true
-
-            // Specifies the ProGuard rules files.
-            // getDefaultProguardFile('proguard-android-optimize.txt') is the default file from the Android SDK.
-            // 'proguard-rules.pro' is a custom rules file in your app module.
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = signingConfigs.getByName("debug")
-        }
-        debug {
-            // Enables code shrinking, obfuscation, and optimization for debug builds.
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

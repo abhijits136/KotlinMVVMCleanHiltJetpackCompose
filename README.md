@@ -7,7 +7,7 @@ This project serves as a comprehensive and production-ready template for a moder
 The application follows a strict Clean Architecture, separating the codebase into three distinct layers:
 
 - **Domain Layer**: The core of the application. It contains the business logic (Use Cases) and the repository interfaces. This layer is pure Kotlin and has no knowledge of the Android framework or the data layer's implementation details.
-- **Data Layer**: Responsible for providing data to the domain layer. It contains repository implementations, data mappers, and data sources (e.g., Retrofit for network, Room for database). It maps raw data models (Entities/DTOs) to clean domain models.
+- **Data Layer**: Responsible for providing data to the domain layer. It contains repository implementations, data mappers, and data sources (e.g., for network access and local database persistence with Room). It maps raw data models to clean domain models.
 - **Presentation Layer**: The UI layer of the application. It uses Jetpack Compose for declarative UI, and MVVM (Model-View-ViewModel) to manage UI state and handle user interactions.
 
 ## Features
@@ -52,6 +52,17 @@ app/src/main/java/com/example/kotlinmvvmcleanhiltjetpackcompose
         ├── showcase    # Example feature screen
         └── theme       # Theming and Design Tokens
 ```
+
+## Build Flavors
+
+This project uses build flavors to manage different environments. The following flavors are configured:
+
+-   **`dev`**: For the development environment. It has an `applicationIdSuffix` of `.dev` so it can be installed alongside the production version.
+-   **`prod`**: For the production environment, intended for release builds.
+
+Each flavor has its own source sets (`src/dev/` and `src/prod/`), allowing for different configurations and resources. For example, the `app_name` in `strings.xml` is different for each flavor to provide a visual confirmation of the current build variant. This same mechanism is used to provide environment-specific constants (like API URLs) in `Config.kt`.
+
+You can switch between build variants (e.g., `devDebug`, `prodRelease`) using the **Build Variants** panel in Android Studio.
 
 ## Code Shrinking and Obfuscation
 
