@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.navigation.BottomNavBar
 import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.navigation.Screen
 import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.ui.components.CommonAppBar
+import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.ui.favorites.FavoritesScreen
 import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.ui.showcase.ShowcaseScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,7 +35,7 @@ fun MainScreen() {
         Box(modifier = Modifier.padding(innerPadding)) {
             NavHost(navController, startDestination = Screen.Home.route) {
                 composable(Screen.Home.route) { ShowcaseScreen() }
-                composable(Screen.Favorites.route) { Text("Favorites Screen") }
+                composable(Screen.Favorites.route) { FavoritesScreen() }
                 composable(Screen.Profile.route) { Text("Profile Screen") }
                 composable(Screen.Settings.route) { Text("Settings Screen") }
             }

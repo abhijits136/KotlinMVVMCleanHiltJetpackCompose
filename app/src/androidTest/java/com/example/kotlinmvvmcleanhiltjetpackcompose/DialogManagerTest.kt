@@ -42,7 +42,7 @@ class DialogManagerTest {
 
     @Test
     fun confirmDialog_showsAndConfirms() {
-        var confirmed = false
+        val confirmed = false
         composeTestRule.setContent {
             KotlinMVVMCleanHiltJetpackComposeTheme {
                 DialogHost()
@@ -65,7 +65,7 @@ class DialogManagerTest {
 
     @Test
     fun destructiveDialog_showsAndConfirms() {
-        var confirmed = false
+        val confirmed = false
         composeTestRule.setContent {
             KotlinMVVMCleanHiltJetpackComposeTheme {
                 DialogHost()

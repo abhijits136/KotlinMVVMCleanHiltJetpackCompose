@@ -1,22 +1,36 @@
 package com.example.kotlinmvvmcleanhiltjetpackcompose
 
-import android.app.Application
-import com.example.kotlinmvvmcleanhiltjetpackcompose.data.logging.CrashLogger
+import android.content.Context
+import android.content.Intent
+import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.CrashLogger
+import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.ui.crash.CrashActivity
 
 /**
  * Global uncaught exception handler that logs and shows a friendly dialog.
  */
 class GlobalExceptionHandler(
+    private val context: Context,
+    private val crashLogger: CrashLogger,
     private val defaultHandler: Thread.UncaughtExceptionHandler?
 ) : Thread.UncaughtExceptionHandler {
     override fun uncaughtException(thread: Thread, throwable: Throwable) {
-        CrashLogger.log(throwable)
-        // TODO: Show friendly dialog or notification to user
+        crashLogger.log(throwable)
+
+        // Launch the crash activity
+        val intent = Intent(context, CrashActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        }
+        context.startActivity(intent)
+
+        // Terminate the current process
+        android.os.Process.killProcess(android.os.Process.myPid())
+        System.exit(10)
+
         defaultHandler?.uncaughtException(thread, throwable)
     }
 }
 
-fun Application.setupGlobalExceptionHandler() {
+fun setupGlobalExceptionHandler(context: Context, crashLogger: CrashLogger) {
     val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
-    Thread.setDefaultUncaughtExceptionHandler(GlobalExceptionHandler(defaultHandler))
+    Thread.setDefaultUncaughtExceptionHandler(GlobalExceptionHandler(context, crashLogger, defaultHandler))
 }

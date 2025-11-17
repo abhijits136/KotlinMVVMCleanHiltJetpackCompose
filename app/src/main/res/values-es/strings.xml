@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">KotlinMVVMCleanHiltJetpackCompose</string>
-    <string name="welcome">Bienvenido</string>
-    <string name="item_count">Tienes %1$d artículos</string>
 
     <!-- Showcase Screen Titles -->
     <string name="showcase_title">Component Showcase</string>
@@ -15,6 +13,7 @@
     <string name="analytics_example_title">Analytics Example</string>
     <string name="config_feature_flag_title">Config/Feature Flag</string>
     <string name="accessibility_example_title">Accessibility Example</string>
+    <string name="networking_title">Networking</string>
 
     <!-- Button Labels -->
     <string name="show_loading_button">Show Loading</string>
@@ -28,6 +27,7 @@
     <string name="log_analytics_event_button">Log Analytics Event</string>
     <string name="check_new_ui_flag_button">Check \"new_ui\" Flag</string>
     <string name="accessible_button">Accessible Button</string>
+    <string name="crash_button_text">Crash App</string>
 
     <!-- Text Field Labels -->
     <string name="enter_text_label">Enter Text</string>
@@ -58,4 +58,8 @@
     <string name="screen_favorites">Favorites</string>
     <string name="screen_profile">Profile</string>
     <string name="screen_settings">Settings</string>
+
+    <!-- Crash Screen -->
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="restart_app">Restart App</string>
 </resources>

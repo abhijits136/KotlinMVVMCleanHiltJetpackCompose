@@ -2,13 +2,13 @@ package com.example.kotlinmvvmcleanhiltjetpackcompose.di
 
 // ========= IMPLEMENTATIONS =========
 import com.example.kotlinmvvmcleanhiltjetpackcompose.data.config.ConfigServiceImpl
-import com.example.kotlinmvvmcleanhiltjetpackcompose.data.logging.AnalyticsServiceImpl
+import com.example.kotlinmvvmcleanhiltjetpackcompose.data.repository.FavoritesRepositoryImpl
 import com.example.kotlinmvvmcleanhiltjetpackcompose.data.repository.ShowcaseRepositoryImpl
 import com.example.kotlinmvvmcleanhiltjetpackcompose.data.storage.SecureStorageImpl
 
 // ========= INTERFACES (ABSTRACTIONS) - THIS IS THE CRITICAL PART =========
-import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.AnalyticsService
 import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.ConfigService
+import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.FavoritesRepository
 import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.SecureStorage
 import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.ShowcaseRepository
 
@@ -32,9 +32,9 @@ abstract class AppModule {
 
     @Binds
     @Singleton
-    abstract fun bindAnalyticsService(
-        analyticsServiceImpl: AnalyticsServiceImpl
-    ): AnalyticsService
+    abstract fun bindFavoritesRepository(
+        favoritesRepositoryImpl: FavoritesRepositoryImpl
+    ): FavoritesRepository
 
     @Binds
     @Singleton

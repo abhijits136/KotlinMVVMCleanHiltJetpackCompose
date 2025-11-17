@@ -17,15 +17,18 @@ This template showcases a wide range of modern Android development features:
 - **UI**: Built entirely with Jetpack Compose using Material 3 components.
 - **Theming**: Full support for both Light and Dark themes, with a centralized design token system.
 - **State Management**: Robust UI state management using a single `UiState` data class per screen, managed by the ViewModel with `StateFlow`.
-- **Dependency Injection**: Project-wide dependency injection using Hilt.
+- **Dependency Injection**: Project-wide dependency injection using Hilt. We even demonstrate build-variant-specific injection with the `AnalyticsService`.
 - **Navigation**: A complete, plug-and-play navigation architecture using Jetpack Navigation Component, a `Scaffold`, a reusable `CommonAppBar`, and a `BottomNavBar`.
+- **Networking**: A production-ready networking layer built with **Retrofit** and **OkHttp**. It includes a logging interceptor to show network traffic in Logcat for debug builds.
+- **Graceful Error Handling**: Network responses are wrapped in a `NetworkResult` sealed class. This prevents crashes from network errors (e.g., no internet) and allows the UI to display a user-friendly error message.
+- **Global Crash Handling**: A global `UncaughtExceptionHandler` is set up to catch any unexpected crashes. Instead of the app abruptly closing, the user is shown a friendly `CrashActivity` with an option to restart the app.
 - **Reusable Components**:
   - A powerful, fully customizable `CustomDialog` system managed by a central `DialogManager`.
   - A modal `ErrorDialog` for a professional user experience.
   - A flexible `SplashScreen`.
 - **Clean Architecture Principles**:
   - **Repository Pattern**: Abstracting data sources from the domain layer.
-  - **Mappers**: Isolating data-layer models (Entities) from domain-layer models.
+  - **Mappers**: Isolating data-layer models (Entities/DTOs) from domain-layer models.
   - **Use Cases**: Encapsulating specific pieces of business logic.
 - **Testing**: Unit tests for ViewModels and Use Cases using Mockito and Truth.
 
@@ -38,6 +41,7 @@ app/src/main/java/com/example/kotlinmvvmcleanhiltjetpackcompose
 │   ├── logging
 │   ├── mapper          # Mappers from data models to domain models
 │   ├── model           # Raw data models (Entities/DTOs)
+│   ├── remote          # Network API definitions and DTOs
 │   └── repository      # Repository implementations
 ├── di                  # Hilt Dependency Injection Modules
 ├── domain              # Domain Layer
@@ -49,6 +53,7 @@ app/src/main/java/com/example/kotlinmvvmcleanhiltjetpackcompose
     ├── navigation      # Navigation components (Screen, BottomNavBar)
     └── ui
         ├── components  # Reusable UI components (AppBar, Dialogs)
+        ├── favorites   # Favorites feature screen
         ├── showcase    # Example feature screen
         └── theme       # Theming and Design Tokens
 ```
@@ -60,7 +65,7 @@ This project uses build flavors to manage different environments. The following 
 -   **`dev`**: For the development environment. It has an `applicationIdSuffix` of `.dev` so it can be installed alongside the production version.
 -   **`prod`**: For the production environment, intended for release builds.
 
-Each flavor has its own source sets (`src/dev/` and `src/prod/`), allowing for different configurations and resources. For example, the `app_name` in `strings.xml` is different for each flavor to provide a visual confirmation of the current build variant. This same mechanism is used to provide environment-specific constants (like API URLs) in `Config.kt`.
+Each flavor has its own source sets (`src/dev/` and `src/prod/`), allowing for different configurations, resources, and even code. A key example of this is the `AnalyticsModule`, which uses Hilt to provide a `CustomAnalyticsService` in `dev` builds (which logs to Logcat) and a `FirebaseAnalyticsService` in `prod` builds. This powerful pattern allows you to easily swap out implementations for different environments.
 
 You can switch between build variants (e.g., `devDebug`, `prodRelease`) using the **Build Variants** panel in Android Studio.
 

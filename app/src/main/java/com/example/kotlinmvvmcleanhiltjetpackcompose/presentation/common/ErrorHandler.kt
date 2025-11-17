@@ -1,7 +1,5 @@
 package com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.common
 
-import com.example.kotlinmvvmcleanhiltjetpackcompose.presentation.common.UIError
-
 object ErrorHandler {
     fun map(throwable: Throwable, retryAction: (() -> Unit)? = null): UIError {
         // In a real app, you would have more sophisticated error mapping

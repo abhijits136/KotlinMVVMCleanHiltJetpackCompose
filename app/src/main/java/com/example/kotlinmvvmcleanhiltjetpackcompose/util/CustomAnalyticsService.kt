@@ -1,12 +1,11 @@
-package com.example.kotlinmvvmcleanhiltjetpackcompose.data.logging
+package com.example.kotlinmvvmcleanhiltjetpackcompose.util
 
 import com.example.kotlinmvvmcleanhiltjetpackcompose.domain.repository.AnalyticsService
 import timber.log.Timber
 import javax.inject.Inject
 
-class AnalyticsServiceImpl @Inject constructor() : AnalyticsService {
+class CustomAnalyticsService @Inject constructor() : AnalyticsService {
     override fun logEvent(name: String, params: Map<String, String>) {
-        // In a real app, this would integrate with a real analytics service like Firebase Analytics.
         Timber.d("Logged event: $name, params: $params")
     }
 }
